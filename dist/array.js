@@ -81,7 +81,7 @@ var alunos = ['Maicon', 'Tatiane', 'Iara', 'Jessica'];
 var alunos2 = alunos.map(function (itemAtual) {
   return {
     nome: itemAtual,
-    curso: 'Eng.FrontEnd'
+    curso: 'EngFrontEnd'
   };
 });
 console.log(alunos2);
@@ -91,7 +91,7 @@ var maicon = alunos2.find(function (item) {
   return item.nome == 'Maicon'; // essa função retorna um booleano, TRUE OR FALSE (itemAtual.nome == 'Paula' = PREDICADO)
 });
 console.log(maicon);
-//{ nome: 'Maicon', curso: 'Eng.FrontEnd' } Quando ele não encontra este predicado o retorno é UNDEFINED
+//{ nome: 'Maicon', curso: 'EngFrontEnd' } Quando ele não encontra este predicado o retorno é UNDEFINED
 
 //Outro método que não retorna o item, retorna o INDICE do item
 var indiceDoIara = alunos2.findIndex(function (item) {
@@ -99,3 +99,64 @@ var indiceDoIara = alunos2.findIndex(function (item) {
 });
 console.log(indiceDoIara);
 // retorno 2
+//findIndex quando não encontra o predicado buscado ao inves de retornar UNDEFINED, o retorno é de -1.
+
+//Every
+alunos2.push({
+  nome: 'Lucio',
+  curso: 'Backend'
+});
+var todosOsAlunoSaoDeEngFrontEnd = alunos2.every(function (item) {
+  //item () é chamado de argumento
+  return item.curso === 'EngFrontEnd'; // o retorno será um valor booleano (SIM / NÃO) então temos que armazena-lo. const todosOsAlunos....
+});
+console.log(todosOsAlunoSaoDeEngFrontEnd);
+//true 1 consulta.
+
+var existeAlgumAlunoDeBackend = alunos2.some(function (item) {
+  return item.curso === 'Backend' && item.curso === 'EngFrontEnd'; //usar mais de uma comparação, && item.curso === 'EngFrontEnd'
+});
+console.log(existeAlgumAlunoDeBackend);
+
+//Filtrar , neste caso vamos filtrar os aluno de Backend
+function filtraAlunosDeBackend(aluno) {
+  return aluno.curso === 'Backend';
+}
+var alunosDeBackend = alunos2.filter(filtraAlunosDeBackend); //function(item)
+//     return item.curso === 'Backend';
+// })
+console.log(alunosDeBackend); //Esse tipo de função que executamos aqui chamamos de função anonima. Função que não recebe um nome.
+
+//REDUCE , reduz o conteudo do array em um unico conteudo
+var nums = [10, 20, 30, 10];
+var soma = nums.reduce(function (acumulador, itemAtual) {
+  acumulador += itemAtual; //pega acumulado e incrementa com o itemAtual
+  return acumulador;
+}, 0); //depois da função colocar , e passar o valor inicial neste caso o 0, o acumulador vai ter como valor inicial o 0, vai passar pelo 10 e somar e sequir...ate somar todos os nmro do array
+
+console.log(soma);
+
+//Fazendo o acumuladar sem o babel com o for
+var somaComFor = 0;
+for (var _i = 0; _i < nums.length; _i++) {
+  somaComFor += nums[_i];
+}
+console.log(somaComFor);
+
+//DIK DE OURO ESSAS CASOS AQUI CAEM EM ENTREVISTAS DE ARRAY.
+// FOR EACH SO ITERA NÃO RETORNA NADA, DIFERENTE DO MAP.
+//NO MAP A AGENTE CONSEGUE ITERAR NO ARRAY(COLOCAR +) FAZER MODIFICAÇÕES E AINDA RETORNAR O ARRAY MODIFICADO.
+// FOREACH AQUI É O UNICO MÉTODO QUE NÃO RETORNA NADA.
+//FIND PROCURAR.
+//FIND INDEX RETORNO O INDICE DENTRO DE UM ARRAY
+//EVARY SE TODOS OS ITEM DENTRO DO ARRAY SATISFAZEM UM PREDICADO.
+//SOME PRECISA APENAS QUE UM ITEM SAFISTAÇA A CONDIÇÃO
+//PASSANDO UM FUNÇÃO DIRETAMENTE COMO CALLBACK, ITEM QUE ESTA SENDO ITERADO.
+//FILTER FILTRAR ITENS
+//REDUCE PARA FAZER AGRAGAÇÃO DE VALORES,
+
+var nomesDosAlunos = alunos2.reduce(function (acumulador, itemAtual) {
+  acumulador += "".concat(itemAtual.nome, " "); // aqui o acumulador vai fazer uma concatenação as strings , somaria se num fossem. ` foi adicionada apaneas para dar um espaço entre eles.
+  return acumulador;
+}, ''); // retorno inicial será uma string vazia por isso so as ''.
+console.log(nomesDosAlunos);
