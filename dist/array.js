@@ -160,3 +160,4 @@ var nomesDosAlunos = alunos2.reduce(function (acumulador, itemAtual) {
   return acumulador;
 }, ''); // retorno inicial será uma string vazia por isso so as ''.
 console.log(nomesDosAlunos);
+// Maicon Tatiane Iara Jessica Lucio
