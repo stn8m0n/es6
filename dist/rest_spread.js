@@ -45,7 +45,8 @@ function somarComRest() {
 console.log(somarComRest(10, 20, 30));
 
 //SPREAD
-//Usado para fazer concatenações, console.log, preenchimento de objetos
+//Usado para fazer concatenações, console.log, preenchimento de objetos.
+//Podemos destribuir/espalhar os dados de um array ou objeto.
 var numeros = [1, 2, 3, 4];
 (_console = console).log.apply(_console, numeros);
 
