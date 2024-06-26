@@ -1,4 +1,12 @@
 // Função para retornar alunos com nota maior ou igual a 6
+const alunos = [
+  { nome: 'Ana', nota: 7 },
+  { nome: 'Bruno', nota: 5 },
+  { nome: 'Carlos', nota: 8 },
+  { nome: 'Daniela', nota: 6 },
+  { nome: 'Eduardo', nota: 4 }
+];
+
 const filtrarAlunosAprovados = (alunos) => {
     return alunos.filter(aluno => aluno.nota >= 6);
   };

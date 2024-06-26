@@ -1,6 +1,22 @@
 "use strict";
 
 // Função para retornar alunos com nota maior ou igual a 6
+var alunos = [{
+  nome: 'Ana',
+  nota: 7
+}, {
+  nome: 'Bruno',
+  nota: 5
+}, {
+  nome: 'Carlos',
+  nota: 8
+}, {
+  nome: 'Daniela',
+  nota: 6
+}, {
+  nome: 'Eduardo',
+  nota: 4
+}];
 var filtrarAlunosAprovados = function filtrarAlunosAprovados(alunos) {
   return alunos.filter(function (aluno) {
     return aluno.nota >= 6;
